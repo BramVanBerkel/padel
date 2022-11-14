@@ -20,6 +20,7 @@ document.addEventListener("alpine:init", () => {
                 .then((response) => this.locations = response.data.data)
 
             this.datePicker = new Datepicker(document.getElementById('date'), {
+                weekStart: 1,
                 minDate: new Date()
             });
 
