@@ -44,7 +44,7 @@
                                     <div
                                         :class="{'bg-emerald-500 cursor-pointer': data.available,
                                             'bg-emerald-300 line-through': !data.available,
-                                            'border-4 border-red-700': data.users.length >= 4}"
+                                            'border-4 border-yellow-500': data.users.length >= 4}"
                                         x-on:click="(data.available) ? updateAvailability(timeslot) : null"
                                         class="py-1 text-white text-center rounded">
                                         <span x-text="timeslot"></span>
