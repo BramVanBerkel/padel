@@ -20,4 +20,5 @@ Route::get('/users', UserController::class);
 Route::get('/locations', LocationController::class);
 
 Route::get('/timeslots/{location}/{date}', [TimeSlotController::class, 'index']);
+Route::get('/timeslots/matches', [TimeSlotController::class, 'matches']);
 Route::post('/timeslots', [TimeSlotController::class, 'toggle']);

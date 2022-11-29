@@ -15,7 +15,7 @@
 
 </head>
 <body class="antialiased h-full">
-    @yield('content')`
+    @yield('content')
     @yield('scripts')
 </body>
 </html>

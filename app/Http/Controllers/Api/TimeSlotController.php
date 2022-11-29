@@ -8,12 +8,14 @@ use App\Http\Requests\TimeSlotRequest;
 use App\Models\Location;
 use App\Models\User;
 use App\Services\AvailabilityService;
+use App\Services\MatchService;
 use Illuminate\Support\Carbon;
 
 class TimeSlotController extends Controller
 {
     public function __construct(
         private readonly AvailabilityService $availabilityService,
+        private readonly MatchService $matchService,
     ) {
     }
 
@@ -35,5 +37,10 @@ class TimeSlotController extends Controller
             $request->timeslot,
             Carbon::parse($request->date),
         );
+    }
+
+    public function matches()
+    {
+        return $this->matchService->getMatches();
     }
 }

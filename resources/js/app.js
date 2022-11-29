@@ -1,6 +1,7 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
 import Datepicker from 'flowbite-datepicker/Datepicker';
+import axios from "axios";
 
 window.Alpine = Alpine;
 
@@ -11,6 +12,7 @@ document.addEventListener("alpine:init", () => {
         selectedLocation: null,
         timeslots: [],
         locations: [],
+        matches: [],
         datePicker: null,
         async init() {
             axios.get('/api/users')
@@ -33,6 +35,7 @@ document.addEventListener("alpine:init", () => {
             }
 
             this.updateTimeslots()
+            this.updateMatches()
         },
         updateTimeslots() {
             if (this.selectedLocation === null || this.datePicker.getDate() === undefined) {
@@ -41,6 +44,12 @@ document.addEventListener("alpine:init", () => {
 
             axios.get(`/api/timeslots/${this.selectedLocation}/${this.datePicker.getDate('yyyy-mm-dd')}`)
                 .then((response) => this.timeslots = response.data)
+
+            this.updateMatches()
+        },
+        updateMatches() {
+            axios.get('/api/timeslots/matches')
+                .then((response) => this.matches = response.data);
         },
         async updateAvailability(timeslot) {
             await axios.post(`/api/timeslots`, {

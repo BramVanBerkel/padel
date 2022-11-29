@@ -58,6 +58,32 @@
                             </div>
                         </div>
                     </div>
+                    <div class="px-4 py-8 space-y-4 sm:px-0">
+                        <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Beschikbare data</h1>
+                        <template x-for="(dates, locationName) in matches">
+                            <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900" x-text="locationName"></h2>
+
+                                <template x-for="i in 2">
+                                    <h3 class="text-1xl font-bold leading-tight tracking-tight text-gray-900" x-text="i"></h3>
+                                </template>
+
+                        </template>
+
+
+{{--                        <div>--}}
+{{--                            <div class="grid overflow-hidden grid-cols-4 grid-rows-8 gap-2">--}}
+
+{{--                                    <div class="bg-emerald-500 py-1 text-white text-center rounded">--}}
+{{--                                        <span>asd</span>--}}
+{{--                                        <ul>--}}
+{{--                                            <template x-for="user in data.users">--}}
+{{--                                                <li x-text="user"></li>--}}
+{{--                                            </template>--}}
+{{--                                        </ul>--}}
+{{--                                </template>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+                    </div>
                 </div>
             </main>
         </div>
